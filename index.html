@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Braces in Penang from RM130/month | Joy Dental</title>
-    <!-- Google Ads Keywords naturally included in meta description -->
     <meta name="description" content="Looking for affordable, cheap braces in Penang? Joy Dental offers braces from RM130/month. Metal, ceramic, and clear aligners available across multiple clinics.">
+    <meta name="keywords" content="braces penang, affordable braces penang, invisalign penang, clear aligners penang, braces bayan lepas, braces pulau tikus, braces permatang pauh, braces for adults penang, cheap braces penang, joy dental">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Tailwind Config for Custom Colors -->
     <script>
         tailwind.config = {
             theme: {
@@ -24,15 +22,18 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
                     }
                 }
             }
         }
     </script>
     
-    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Added SweetAlert2 for demo popups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Added DM Serif Display to match reference images -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         /* Hide scrollbar for clean look but allow scrolling */
@@ -41,7 +42,7 @@
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
         
-        /* Smooth bounce animation for floating WhatsApp */
+        /* Smooth bounce animation for floating elements */
         @keyframes subtle-bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
@@ -75,13 +76,10 @@
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
-        .delay-400 { transition-delay: 400ms; }
-        .delay-500 { transition-delay: 500ms; }
     </style>
 </head>
-<body class="bg-joy-bg text-gray-800 font-sans antialiased relative pb-20 md:pb-0">
+<body class="bg-joy-bg text-gray-800 font-sans antialiased relative">
 
-    <!-- Note: Replace this phone number with the actual Joy Dental WhatsApp number -->
     <script>
         const whatsappNumber = "60123456789"; 
         const whatsappMessage = encodeURIComponent("Hi, interested in braces in Penang. Can I get a quote?");
@@ -92,31 +90,26 @@
         }
     </script>
 
-    <!-- HEADER: White Nav with Scroll Links -->
     <header class="bg-white shadow-sm sticky top-0 z-40 w-full">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
                 <div class="flex items-center">
                     <img src="assets/images/joydental_image_logo.webp" alt="Joy Dental Logo" class="h-14 md:h-16 w-auto object-contain">
                 </div>
                 
-                <!-- Desktop Navigation Links -->
                 <nav class="hidden lg:flex items-center gap-8 font-semibold text-gray-600 text-sm">
                     <a href="#price" class="hover:text-joy-yellowHover transition-colors">Pricing</a>
+                    <a href="#lead-form" class="hover:text-joy-yellowHover transition-colors">Get Quote</a>
                     <a href="#options" class="hover:text-joy-yellowHover transition-colors">Options</a>
                     <a href="#locations" class="hover:text-joy-yellowHover transition-colors">Locations</a>
-                    <a href="#reviews" class="hover:text-joy-yellowHover transition-colors">Reviews</a>
                     <a href="#faq" class="hover:text-joy-yellowHover transition-colors">FAQ</a>
                 </nav>
 
-                <!-- CTA & Mobile Menu Toggle -->
                 <div class="flex items-center gap-4">
                     <button onclick="openWhatsApp()" class="hidden md:flex items-center gap-2 bg-joy-yellow hover:bg-joy-yellowHover text-gray-900 font-bold py-2 px-5 rounded-full transition-colors shadow-sm">
                         <i class="ph ph-whatsapp-logo text-xl"></i>
                         WhatsApp Us
                     </button>
-                    <!-- Hamburger Icon for Mobile -->
                     <button id="mobile-menu-btn" class="lg:hidden text-gray-900 text-3xl p-1 focus:outline-none">
                         <i class="ph ph-list"></i>
                     </button>
@@ -124,147 +117,448 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden lg:hidden absolute top-20 left-0 w-full bg-white shadow-lg border-t border-gray-100">
             <div class="flex flex-col px-6 py-4 space-y-4 text-base font-semibold text-gray-700">
                 <a href="#price" class="mobile-nav-link hover:text-joy-yellowHover">Pricing</a>
+                <a href="#lead-form" class="mobile-nav-link hover:text-joy-yellowHover">Get Quote</a>
                 <a href="#options" class="mobile-nav-link hover:text-joy-yellowHover">Options</a>
                 <a href="#locations" class="mobile-nav-link hover:text-joy-yellowHover">Locations</a>
-                <a href="#reviews" class="mobile-nav-link hover:text-joy-yellowHover">Reviews</a>
                 <a href="#faq" class="mobile-nav-link hover:text-joy-yellowHover">FAQ</a>
             </div>
         </div>
     </header>
 
     <main class="overflow-hidden">
+        
+        <div id="form-success-banner" class="hidden bg-green-500 text-white text-center py-3 font-bold">
+            Thank you! Your request has been sent. We will reply within 30 minutes!
+        </div>
+
         <!-- 1. HERO SECTION -->
         <section class="py-12 md:py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 animate-fade-in-up">
-                    <div class="inline-block bg-white text-joy-yellowHover font-bold px-3 py-1 rounded-full text-sm border border-yellow-200 shadow-sm mb-2">
-                        ⭐ Top Rated Braces Penang
+                    <div class="inline-flex items-center gap-2 bg-white text-joy-yellowHover font-bold px-4 py-1.5 rounded-full text-sm border border-yellow-100 shadow-sm mb-2">
+                        <i class="ph-fill ph-star"></i> Top Rated Braces Penang
                     </div>
-                    <!-- H1 perfectly matching ads keywords -->
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+                    
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-gray-900 leading-[1.1]">
                         Braces in Penang <br/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600">from RM130/month</span>
+                        <span class="text-joy-yellowHover">from RM130/month</span>
                     </h1>
                     
-                    <p class="text-lg md:text-xl text-gray-600 font-medium">
+                    <p class="text-lg text-gray-600 font-medium max-w-md">
                         Affordable, low deposit/downpayment, professional braces for teens & adults — fast consultation, flexible payment, multiple locations.
                     </p>
                     
                     <ul class="space-y-3 font-medium text-gray-700">
                         <li class="flex items-center gap-3">
-                            <i class="ph-fill ph-check-circle text-joy-yellow text-2xl flex-shrink-0"></i>
+                            <div class="w-5 h-5 rounded-full bg-joy-yellow flex items-center justify-center flex-shrink-0 text-white text-xs">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
                             <span>From <strong>RM130/month</strong> (instalment available)</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="ph-fill ph-check-circle text-joy-yellow text-2xl flex-shrink-0"></i>
+                            <div class="w-5 h-5 rounded-full bg-joy-yellow flex items-center justify-center flex-shrink-0 text-white text-xs">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
                             <span>Metal, Ceramic & Clear Aligners</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="ph-fill ph-check-circle text-joy-yellow text-2xl flex-shrink-0"></i>
+                            <div class="w-5 h-5 rounded-full bg-joy-yellow flex items-center justify-center flex-shrink-0 text-white text-xs">
+                                <i class="ph-bold ph-check"></i>
+                            </div>
                             <span>Multiple clinics in Penang</span>
                         </li>
                     </ul>
                     
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <!-- Primary CTA -->
-                        <button onclick="openWhatsApp()" class="w-full sm:w-auto flex justify-center items-center gap-2 bg-joy-yellow hover:bg-joy-yellowHover text-gray-900 text-lg font-bold py-4 px-8 rounded-full transition-transform hover:scale-105 shadow-lg">
-                            <i class="ph ph-whatsapp-logo text-2xl"></i>
+                        <button onclick="openWhatsApp()" class="w-full sm:w-auto flex justify-center items-center gap-2 bg-joy-yellow hover:bg-joy-yellowHover text-gray-900 text-[15px] font-bold py-4 px-8 rounded-full transition-transform shadow-md">
+                            <i class="ph-bold ph-whatsapp-logo text-xl"></i>
                             WhatsApp Now for Quote
                         </button>
-                        <!-- Secondary CTA -->
-                        <a href="#consultation" class="w-full sm:w-auto flex justify-center items-center text-gray-900 bg-white border-2 border-gray-200 hover:border-gray-300 text-lg font-bold py-4 px-8 rounded-full transition-colors text-center shadow-sm">
+                        <a href="#lead-form" class="w-full sm:w-auto flex justify-center items-center text-gray-900 bg-white border-2 border-gray-200 hover:border-gray-300 text-[15px] font-bold py-4 px-8 rounded-full transition-colors text-center shadow-sm">
                             Book Consultation
                         </a>
                     </div>
                     
-                    <!-- Trust Strip -->
                     <div class="flex items-center gap-2 text-sm font-medium text-gray-500 pt-2">
-                        <div class="flex text-yellow-400">
-                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                        <div class="flex text-yellow-400 text-lg">
+                            ★★★★★
                         </div>
                         <span>Trusted by thousands of patients across Penang</span>
                     </div>
                 </div>
                 
-                <!-- Hero Image -->
                 <div class="relative animate-fade-in-up" style="animation-delay: 0.2s;">
-                    <div class="absolute inset-0 bg-joy-yellow rounded-3xl transform translate-x-4 translate-y-4 opacity-50"></div>
                     <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                          alt="Happy patient with braces in Penang clinic" 
-                         class="relative rounded-3xl shadow-xl w-full h-[400px] md:h-[500px] object-cover"
+                         class="relative rounded-[2rem] shadow-xl w-full h-[450px] md:h-[550px] object-cover"
                          onerror="this.src='https://via.placeholder.com/800x600?text=Joy+Dental+Braces'">
                     
-                    <!-- Floating badge on image -->
-                    <div class="absolute bottom-6 left-[-10px] bg-white p-4 rounded-xl shadow-lg border border-gray-100 flex items-center gap-3 animate-subtle-bounce">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-2xl">
+                    <div class="absolute -bottom-6 -left-6 bg-white py-3 px-5 rounded-2xl shadow-xl border border-gray-50 flex items-center gap-4 animate-subtle-bounce">
+                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 text-2xl">
                             <i class="ph-fill ph-money"></i>
                         </div>
                         <div>
-                            <p class="text-xs text-gray-500 font-semibold uppercase">Flexible Plans</p>
-                            <p class="text-gray-900 font-bold">Low Downpayment</p>
+                            <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-0.5">Flexible Plans</p>
+                            <p class="text-gray-900 font-bold leading-none">Low Downpayment</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. INSTANT QUALIFIER -->
-        <section class="py-16 bg-white">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Who Is This For?</h2>
-                <div class="bg-joy-bg p-8 rounded-3xl shadow-sm border border-blue-50 text-left max-w-2xl mx-auto transition-all hover:shadow-md">
-                    <ul class="space-y-4 text-lg text-gray-700 font-medium">
-                        <li class="flex items-center gap-4">
-                            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-green-500 flex-shrink-0">
-                                <i class="ph-bold ph-check"></i>
+        <!-- MODERN TRUST BAR WITH GLOW AND ANIMATION -->
+        <div class="bg-white py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto relative">
+                
+                <!-- Background decorative glow -->
+                <div class="absolute -inset-2 md:-inset-4 bg-joy-yellow/20 blur-3xl rounded-full opacity-60 animate-pulse hidden md:block"></div>
+                
+                <div class="relative bg-white rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.06)] border-t-4 border-t-joy-yellowHover border-x border-b border-gray-100 p-8 md:p-12 reveal-up hover:shadow-[0_20px_50px_rgba(230,181,0,0.15)] transition-all duration-500 transform hover:-translate-y-1">
+                    
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6 divide-y md:divide-y-0 md:divide-x divide-gray-100 text-center mb-10">
+                        <div class="pt-4 md:pt-0">
+                            <div class="text-4xl md:text-5xl font-serif text-gray-900 mb-2">6</div>
+                            <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Clinic Locations</div>
+                        </div>
+                        <div class="pt-8 md:pt-0">
+                            <div class="text-4xl md:text-5xl font-serif text-gray-900 mb-2">800<span class="text-joy-yellowHover">+</span></div>
+                            <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Happy Patients</div>
+                        </div>
+                        <div class="pt-8 md:pt-0">
+                            <div class="text-4xl md:text-5xl font-serif text-gray-900 mb-2">4.9<span class="text-joy-yellowHover">★</span></div>
+                            <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Average Rating</div>
+                        </div>
+                        <div class="pt-8 md:pt-0">
+                            <div class="text-4xl md:text-5xl font-serif text-gray-900 mb-2"><span class="text-2xl text-gray-400 font-sans mr-1">RM</span>130</div>
+                            <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">From / Month</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trust Badges with yellow accents -->
+                    <div class="flex flex-wrap justify-center gap-3 md:gap-4 reveal-up delay-100">
+                        <div class="group bg-white border border-gray-100 rounded-full py-2.5 px-4 md:px-5 text-[13px] font-semibold text-gray-700 flex items-center gap-2.5 hover:-translate-y-1 transition-transform cursor-default shadow-sm hover:shadow-md hover:border-yellow-100">
+                            <div class="bg-yellow-50 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="ph-bold ph-check text-joy-yellowHover text-[10px]"></i>
                             </div>
-                            Want straighter, healthier teeth
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-green-500 flex-shrink-0">
-                                <i class="ph-bold ph-check"></i>
+                            MOH Registered
+                        </div>
+                        <div class="group bg-white border border-gray-100 rounded-full py-2.5 px-4 md:px-5 text-[13px] font-semibold text-gray-700 flex items-center gap-2.5 hover:-translate-y-1 transition-transform cursor-default shadow-sm hover:shadow-md hover:border-yellow-100">
+                            <div class="bg-yellow-50 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="ph-bold ph-check text-joy-yellowHover text-[10px]"></i>
                             </div>
-                            Looking for <strong>affordable braces in Penang</strong>
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-green-500 flex-shrink-0">
-                                <i class="ph-bold ph-check"></i>
+                            Malaysian Dental Council Certified
+                        </div>
+                        <div class="group bg-white border border-gray-100 rounded-full py-2.5 px-4 md:px-5 text-[13px] font-semibold text-gray-700 flex items-center gap-2.5 hover:-translate-y-1 transition-transform cursor-default shadow-sm hover:shadow-md hover:border-yellow-100">
+                            <div class="bg-yellow-50 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="ph-bold ph-check text-joy-yellowHover text-[10px]"></i>
                             </div>
-                            Prefer easy monthly instalment plans
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-green-500 flex-shrink-0">
-                                <i class="ph-bold ph-check"></i>
+                            Digital Scanning Technology
+                        </div>
+                        <div class="group bg-white border border-gray-100 rounded-full py-2.5 px-4 md:px-5 text-[13px] font-semibold text-gray-700 flex items-center gap-2.5 hover:-translate-y-1 transition-transform cursor-default shadow-sm hover:shadow-md hover:border-yellow-100">
+                            <div class="bg-yellow-50 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="ph-bold ph-check text-joy-yellowHover text-[10px]"></i>
                             </div>
-                            Teens or adults
-                        </li>
-                    </ul>
-                    <div class="mt-8 p-4 bg-joy-yellow bg-opacity-20 rounded-xl text-center font-bold text-gray-900 text-lg">
-                        If this is you, we can help immediately! 🦷
+                            No Hidden Charges
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEAD FORM SECTION -->
+        <section id="lead-form" class="py-20 bg-joy-bg border-y border-blue-50 scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    
+                    <div class="reveal-up">
+                        <p class="text-joy-yellowHover font-bold uppercase tracking-wider text-xs mb-3">Get Your Quote Today</p>
+                        <h2 class="text-4xl md:text-5xl font-serif text-gray-900 mb-6 leading-tight">Find out exactly what your braces will cost</h2>
+                        <p class="text-lg text-gray-600 mb-10 max-w-md leading-relaxed">Leave your details and our friendly team will contact you within 30 minutes with a personalised quote — no obligation, no pressure.</p>
+                        
+                        <ul class="space-y-8">
+                            <li class="flex gap-4 items-start">
+                                <div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="ph-bold ph-check text-joy-yellowHover text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-[17px]">Fast reply — within 30 mins</h4>
+                                    <p class="text-gray-600 text-sm mt-1">Our team replies fast during clinic hours (Mon–Sat, 9am–6pm)</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="ph-bold ph-check text-joy-yellowHover text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-[17px]">Get Your Quote Today</h4>
+                                    <p class="text-gray-600 text-sm mt-1">Get an assessment and price breakdown — limited slots only</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="ph-bold ph-check text-joy-yellowHover text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 text-[17px]">No commitment required</h4>
+                                    <p class="text-gray-600 text-sm mt-1">Get all the information you need before deciding</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] p-8 md:p-10 border border-gray-100 shadow-xl reveal-up delay-100">
+                        <h3 class="text-3xl font-serif text-gray-900 mb-2">Get Your Quote</h3>
+                        <p class="text-gray-500 mb-8 text-sm">Fill in below — takes less than 1 minute</p>
+                        
+                        <form id="quote-form" class="space-y-5" onsubmit="handleDemoSubmit(event)">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">Full Name *</label>
+                                    <input type="text" name="fname" required placeholder="e.g. Ahmad Razif" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-joy-yellow focus:border-joy-yellow outline-none transition-colors bg-white">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1.5">WhatsApp Number *</label>
+                                    <input type="tel" name="fphone" required placeholder="e.g. 012-345 6789" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-joy-yellow focus:border-joy-yellow outline-none transition-colors bg-white">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Nearest Clinic Location</label>
+                                <select name="floc" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-joy-yellow focus:border-joy-yellow outline-none transition-colors bg-white appearance-none">
+                                    <option value="">Select a location</option>
+                                    <option value="Bayan Lepas">Bayan Lepas</option>
+                                    <option value="Pulau Tikus">Pulau Tikus</option>
+                                    <option value="Tanjung Tokong">Tanjung Tokong</option>
+                                    <option value="Permatang Pauh">Permatang Pauh</option>
+                                    <option value="Karpal Singh">Karpal Singh</option>
+                                    <option value="Raja Uda">Raja Uda</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Interested in Which Braces?</label>
+                                <select name="ftype" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-joy-yellow focus:border-joy-yellow outline-none transition-colors bg-white appearance-none">
+                                    <option value="Not sure yet">Not sure yet</option>
+                                    <option value="Metal Braces">Metal Braces</option>
+                                    <option value="Ceramic Braces">Ceramic Braces</option>
+                                    <option value="Clear Aligners">Clear Aligners / Invisalign</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Who is the patient?</label>
+                                <select name="fwho" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-joy-yellow focus:border-joy-yellow outline-none transition-colors bg-white appearance-none">
+                                    <option value="">Select</option>
+                                    <option value="Myself (Adult)">Myself (Adult)</option>
+                                    <option value="My child / teen">My child / teen</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="w-full mt-4 bg-joy-yellow hover:bg-joy-yellowHover text-gray-900 font-bold text-[15px] py-4 rounded-xl transition-colors shadow-md flex justify-center items-center gap-2">
+                                Send My Quote Request →
+                            </button>
+                            <p class="text-xs text-center text-gray-500 mt-4">We respect your privacy. Your details are never shared with third parties.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. TYPES OF BRACES -->
+        <section id="options" class="py-16 bg-white scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-4">Braces Options Available</h2>
+                    <p class="text-lg text-gray-600">We offer a variety of cheap and premium braces tailored to your needs.</p>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <!-- Option 1: Metal -->
+                    <div class="flex flex-col bg-white p-6 md:p-8 rounded-3xl border border-gray-200 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 text-left reveal-up">
+                        <div>
+                            <span class="inline-block bg-gray-800 text-white text-[10px] font-bold uppercase tracking-wider py-1.5 px-3.5 rounded-full mb-6">Most Affordable</span>
+                        </div>
+                        <div class="text-4xl mb-5">⚙️</div>
+                        <h3 class="text-2xl font-serif text-gray-900 mb-3">Metal Braces</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">The proven, highly effective option for all complexity levels — including severe crowding and spacing.</p>
+                        <div class="text-gray-900 font-bold mt-auto">From RM130/month</div>
+                    </div>
+
+                    <!-- Option 2: Ceramic (Featured) -->
+                    <div class="flex flex-col bg-[#fffdf0] p-6 md:p-8 rounded-3xl border-2 border-joy-yellow hover:-translate-y-2 hover:shadow-xl transition-all duration-300 text-left reveal-up delay-100">
+                        <div>
+                            <span class="inline-block bg-joy-yellowHover text-white text-[10px] font-bold uppercase tracking-wider py-1.5 px-3.5 rounded-full mb-6">Most Popular</span>
+                        </div>
+                        <div class="text-4xl mb-5">🦷</div>
+                        <h3 class="text-2xl font-serif text-gray-900 mb-3">Ceramic Braces</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Tooth-coloured brackets blend in naturally — ideal for professionals and adults wanting a discreet look.</p>
+                        <div class="text-joy-yellowHover font-bold mt-auto">From RM160/month</div>
+                    </div>
+
+                    <!-- Option 3: Aligners -->
+                    <div class="flex flex-col bg-white p-6 md:p-8 rounded-3xl border border-gray-200 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 text-left reveal-up delay-200">
+                        <div>
+                            <span class="inline-block bg-gray-100 text-gray-600 text-[10px] font-bold uppercase tracking-wider py-1.5 px-3.5 rounded-full mb-6">Nearly Invisible</span>
+                        </div>
+                        <div class="text-4xl mb-5">✨</div>
+                        <h3 class="text-2xl font-serif text-gray-900 mb-3">Clear Aligners</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">Removable, transparent trays — the most discreet option, ideal for mild to moderate cases and busy adults.</p>
+                        <div class="text-gray-900 font-bold mt-auto">From RM220/month</div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 mx-auto max-w-3xl block text-center bg-[#f4f8ff] py-5 px-8 rounded-2xl border border-blue-100 reveal-up delay-200">
+                    <p class="text-gray-800 font-medium text-[15px] md:text-base">
+                        🤔 <span class="font-bold text-gray-900">Not sure which?</span> We recommend the best option based on your budget & lifestyle during consultation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOCTORS SECTION -->
+        <section class="py-16 bg-white border-t border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <p class="text-joy-yellowHover font-bold uppercase tracking-wider text-xs mb-2">Our Team</p>
+                    <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-4">Meet your dentists</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Our experienced, MOH-registered dental team is dedicated to giving you comfortable, professional care at every visit.</p>
+                </div>
+                <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <!-- Dr A -->
+                    <div class="bg-white border border-gray-200 rounded-2xl p-6 text-center reveal-up shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-20 h-20 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-4 font-serif text-2xl text-joy-yellowHover">Dr A</div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Dr. [Your Dentist Name]</h4>
+                        <div class="text-sm text-gray-500 mb-3">Orthodontist — Braces Specialist</div>
+                        <span class="inline-block bg-yellow-50 text-joy-yellowHover text-xs font-bold px-3 py-1 rounded-full">MOH Registered</span>
+                    </div>
+                    <!-- Dr B -->
+                    <div class="bg-white border border-gray-200 rounded-2xl p-6 text-center reveal-up shadow-sm hover:shadow-md transition-shadow delay-100">
+                        <div class="w-20 h-20 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-4 font-serif text-2xl text-joy-yellowHover">Dr B</div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Dr. [Your Dentist Name]</h4>
+                        <div class="text-sm text-gray-500 mb-3">General Dental Practitioner</div>
+                        <span class="inline-block bg-yellow-50 text-joy-yellowHover text-xs font-bold px-3 py-1 rounded-full">BDS (Malaya)</span>
+                    </div>
+                    <!-- Dr C -->
+                    <div class="bg-white border border-gray-200 rounded-2xl p-6 text-center reveal-up shadow-sm hover:shadow-md transition-shadow delay-200">
+                        <div class="w-20 h-20 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-4 font-serif text-2xl text-joy-yellowHover">Dr C</div>
+                        <h4 class="font-bold text-gray-900 text-lg mb-1">Dr. [Your Dentist Name]</h4>
+                        <div class="text-sm text-gray-500 mb-3">Clear Aligner Specialist</div>
+                        <span class="inline-block bg-yellow-50 text-joy-yellowHover text-xs font-bold px-3 py-1 rounded-full">MOH Registered</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. PRICE FIRST -->
+        <!-- TESTIMONIALS SECTION -->
+        <section id="reviews" class="py-16 bg-gray-900 scroll-mt-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <p class="text-joy-yellow font-bold uppercase tracking-wider text-xs mb-2">Patient Reviews</p>
+                    <h2 class="text-3xl md:text-4xl font-serif text-white mb-4">What our patients say</h2>
+                    <p class="text-lg text-gray-400">Real patients, real results from across Penang.</p>
+                </div>
+                
+                <!-- Text Reviews Grid -->
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 reveal-up">
+                        <div class="text-joy-yellow text-sm mb-3">★★★★★</div>
+                        <p class="text-gray-300 text-[15px] mb-5 italic">"Finished my ceramic braces treatment in 18 months. The team at Bayan Lepas is super patient and explains everything clearly. Very happy with my results!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-joy-yellow flex items-center justify-center text-gray-900 font-bold text-xs">SK</div>
+                            <div>
+                                <div class="font-bold text-white text-sm">Siti K.</div>
+                                <div class="text-xs text-gray-400">Bayan Lepas — Ceramic Braces</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 reveal-up delay-100">
+                        <div class="text-joy-yellow text-sm mb-3">★★★★★</div>
+                        <p class="text-gray-300 text-[15px] mb-5 italic">"As a working adult I was worried braces would look bad. The clear aligners were recommended and I barely needed to visit — the results are amazing."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-joy-yellow flex items-center justify-center text-gray-900 font-bold text-xs">RH</div>
+                            <div>
+                                <div class="font-bold text-white text-sm">Raj H.</div>
+                                <div class="text-xs text-gray-400">Pulau Tikus — Clear Aligners</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 reveal-up delay-200">
+                        <div class="text-joy-yellow text-sm mb-3">★★★★★</div>
+                        <p class="text-gray-300 text-[15px] mb-5 italic">"Got metal braces for my daughter. The monthly instalment plan made it very manageable. Clinic at Permatang Pauh is convenient for us."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-joy-yellow flex items-center justify-center text-gray-900 font-bold text-xs">LM</div>
+                            <div>
+                                <div class="font-bold text-white text-sm">Linda M.</div>
+                                <div class="text-xs text-gray-400">Permatang Pauh — Metal Braces</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Before / After Grid -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white/5 rounded-2xl overflow-hidden border border-white/10 reveal-up">
+                        <div class="grid grid-cols-2">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1590625691060-61b8f1c86ce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="object-cover w-full h-48 grayscale opacity-70" alt="Before">
+                                <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Before</div>
+                            </div>
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="object-cover w-full h-48" alt="After">
+                                <div class="absolute bottom-2 left-2 bg-joy-yellow text-gray-900 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">After</div>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-white/5">
+                            <div class="text-joy-yellow font-bold text-xs mb-1">18 months — Metal Braces</div>
+                            <p class="text-sm text-gray-300">"Love my new smile. Worth every ringgit!"</p>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 rounded-2xl overflow-hidden border border-white/10 reveal-up delay-100">
+                        <div class="grid grid-cols-2">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="object-cover w-full h-48 grayscale opacity-70" alt="Before">
+                                <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">Before</div>
+                            </div>
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="object-cover w-full h-48" alt="After">
+                                <div class="absolute bottom-2 left-2 bg-joy-yellow text-gray-900 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded">After</div>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-white/5">
+                            <div class="text-joy-yellow font-bold text-xs mb-1">14 months — Clear Aligners</div>
+                            <p class="text-sm text-gray-300">"Nobody even noticed I was wearing them!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center reveal-scale">
+                    <a href="https://www.instagram.com/joydental" target="_blank" class="inline-flex items-center gap-2 bg-white/10 border border-white/20 hover:bg-white/20 text-white py-3 px-6 rounded-full text-sm font-medium transition-colors">
+                        See more cases on Instagram @JoyDental →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PRICE FIRST (Moved below Reviews) -->
         <section id="price" class="py-16 max-w-5xl mx-auto px-4 sm:px-6 scroll-mt-24">
             <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How Much Do Braces Cost in Penang?</h2>
+                <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-4">How Much Do Braces Cost in Penang?</h2>
                 <p class="text-lg text-gray-600">Quality dental care that fits your monthly budget.</p>
             </div>
             
             <div class="bg-white rounded-3xl shadow-xl overflow-hidden max-w-3xl mx-auto border border-gray-100 transition-all hover:shadow-2xl hover:-translate-y-1">
                 <div class="bg-gray-900 text-white p-8 text-center relative overflow-hidden">
-                    <!-- decorative shapes -->
                     <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
                     <div class="absolute bottom-0 left-0 w-24 h-24 bg-joy-yellow opacity-20 rounded-full -ml-10 -mb-10"></div>
                     
                     <h3 class="text-2xl font-bold text-joy-yellow mb-2">Flexible Instalment Plans</h3>
-                    <div class="text-5xl font-extrabold mb-2">From RM130<span class="text-lg text-gray-400 font-normal">/month</span></div>
+                    <div class="text-5xl font-serif mb-2">From RM130<span class="text-lg text-gray-400 font-sans font-normal">/month</span></div>
                     <p class="text-gray-300">Price depends on case complexity</p>
                 </div>
                 
@@ -280,91 +574,65 @@
             </div>
         </section>
 
-        <!-- 4. TYPES OF BRACES -->
-        <section id="options" class="py-16 bg-white scroll-mt-20">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Braces Options Available</h2>
-                    <p class="text-lg text-gray-600">We offer a variety of cheap and premium braces tailored to your needs.</p>
-                </div>
-                
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Option 1 -->
-                    <div class="bg-joy-bg p-6 rounded-2xl border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 text-center reveal-up">
-                        <div class="w-16 h-16 mx-auto bg-gray-200 rounded-full flex items-center justify-center mb-4 text-3xl text-gray-600">
-                            ⚙️
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Metal Braces</h3>
-                        <p class="text-joy-yellowHover font-bold text-sm uppercase tracking-wide mb-3">Most Affordable</p>
-                        <p class="text-gray-600 text-sm">The classic, highly effective option for complex cases.</p>
-                    </div>
-                    <!-- Option 2 -->
-                    <div class="bg-joy-bg p-6 rounded-2xl border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 text-center reveal-up delay-100">
-                        <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-4 text-3xl shadow-sm">
-                            🦷
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Ceramic Braces</h3>
-                        <p class="text-blue-500 font-bold text-sm uppercase tracking-wide mb-3">Less Visible</p>
-                        <p class="text-gray-600 text-sm">Tooth-colored brackets for a more discreet look.</p>
-                    </div>
-                    <!-- Option 3 -->
-                    <div class="bg-joy-bg p-6 rounded-2xl border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 text-center reveal-up delay-200">
-                        <div class="w-16 h-16 mx-auto bg-gray-900 rounded-full flex items-center justify-center mb-4 text-3xl text-white">
-                            ⚡
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Self-Ligating (Damon)</h3>
-                        <p class="text-purple-500 font-bold text-sm uppercase tracking-wide mb-3">Fewer Visits</p>
-                        <p class="text-gray-600 text-sm">Advanced tech that moves teeth faster with less friction.</p>
-                    </div>
-                    <!-- Option 4 -->
-                    <div class="bg-joy-bg p-6 rounded-2xl border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 text-center reveal-up delay-300">
-                        <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4 text-3xl">
-                            ✨
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Clear Aligners</h3>
-                        <p class="text-teal-500 font-bold text-sm uppercase tracking-wide mb-3">Nearly Invisible</p>
-                        <p class="text-gray-600 text-sm">Removable, transparent trays for ultimate comfort.</p>
-                    </div>
-                </div>
-                
-                <div class="mt-10 text-center bg-blue-50 py-4 px-6 rounded-xl inline-block mx-auto max-w-2xl border border-blue-100 reveal-up delay-200">
-                    <p class="text-gray-800 font-medium">
-                        🤔 <span class="font-bold">Not sure which?</span> We recommend the best option based on your budget & lifestyle during consultation.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. LOCAL TRUST -->
+        <!-- LOCATIONS -->
         <section id="locations" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 scroll-mt-20">
             <div class="flex flex-col md:flex-row gap-10 items-center">
                 <div class="w-full md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Braces Clinics Near You in Penang</h2>
-                    <p class="text-lg text-gray-600 mb-8">Easy access, convenient follow-ups. We have multiple clinics strategically located across the island and mainland.</p>
+                    <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-6">6 convenient locations in Penang</h2>
+                    <p class="text-lg text-gray-600 mb-8">Island and mainland — find a Joy Dental clinic near you for easy follow-up visits every 4–6 weeks.</p>
                     
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm border border-gray-100 font-medium text-gray-800 hover:-translate-y-1 transition-transform cursor-default reveal-up">
-                            <i class="ph-fill ph-map-pin text-joy-yellow text-xl"></i> Bayan Lepas
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up">
+                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <div class="font-bold text-[15px] text-gray-900">Bayan Lepas</div>
+                                <div class="text-xs text-gray-500 mb-1">Penang Island (South)</div>
+                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm border border-gray-100 font-medium text-gray-800 hover:-translate-y-1 transition-transform cursor-default reveal-up delay-100">
-                            <i class="ph-fill ph-map-pin text-joy-yellow text-xl"></i> Permatang Pauh
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up delay-100">
+                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <div class="font-bold text-[15px] text-gray-900">Pulau Tikus</div>
+                                <div class="text-xs text-gray-500 mb-1">Penang Island (Central)</div>
+                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm border border-gray-100 font-medium text-gray-800 hover:-translate-y-1 transition-transform cursor-default reveal-up delay-200">
-                            <i class="ph-fill ph-map-pin text-joy-yellow text-xl"></i> Pulau Tikus
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up delay-200">
+                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <div class="font-bold text-[15px] text-gray-900">Tanjung Tokong</div>
+                                <div class="text-xs text-gray-500 mb-1">Penang Island (North)</div>
+                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm border border-gray-100 font-medium text-gray-800 hover:-translate-y-1 transition-transform cursor-default reveal-up delay-300">
-                            <i class="ph-fill ph-map-pin text-joy-yellow text-xl"></i> Tanjung Tokong
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up">
+                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <div class="font-bold text-[15px] text-gray-900">Permatang Pauh</div>
+                                <div class="text-xs text-gray-500 mb-1">Seberang Perai</div>
+                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm border border-gray-100 font-medium text-gray-800 hover:-translate-y-1 transition-transform cursor-default reveal-up delay-400">
-                            <i class="ph-fill ph-map-pin text-joy-yellow text-xl"></i> Karpal Singh
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up delay-100">
+                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <div class="font-bold text-[15px] text-gray-900">Karpal Singh</div>
+                                <div class="text-xs text-gray-500 mb-1">Seberang Perai (Central)</div>
+                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm border border-gray-100 font-medium text-gray-800 hover:-translate-y-1 transition-transform cursor-default reveal-up delay-500">
-                            <i class="ph-fill ph-map-pin text-joy-yellow text-xl"></i> Raja Uda
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up delay-200">
+                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
+                            <div>
+                                <div class="font-bold text-[15px] text-gray-900">Raja Uda</div>
+                                <div class="text-xs text-gray-500 mb-1">Butterworth</div>
+                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="w-full md:w-1/2">
-                    <!-- Map Graphic Placeholder -->
                     <div class="w-full h-[350px] bg-gray-200 rounded-3xl overflow-hidden relative border-4 border-white shadow-lg hover:shadow-2xl transition-shadow duration-500">
                         <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                              class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700" 
@@ -380,34 +648,34 @@
             </div>
         </section>
 
-        <!-- 6. WHY JOY DENTAL -->
-        <section class="py-16 bg-white">
+        <!-- WHY CHOOSE JOY DENTAL -->
+        <section class="py-16 bg-joy-bg border-y border-blue-50">
             <div class="max-w-5xl mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10">Why Patients Choose Joy Dental</h2>
+                <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-10">Why Patients Choose Joy Dental</h2>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="p-6 hover:-translate-y-2 transition-transform duration-300 bg-white rounded-2xl hover:shadow-xl border border-transparent hover:border-gray-50 reveal-up">
-                        <div class="w-14 h-14 bg-joy-bg text-joy-yellowHover mx-auto rounded-full flex items-center justify-center text-2xl mb-4">
+                        <div class="w-14 h-14 bg-yellow-50 text-joy-yellowHover mx-auto rounded-full flex items-center justify-center text-2xl mb-4">
                             <i class="ph-fill ph-wallet"></i>
                         </div>
                         <h4 class="font-bold text-gray-900 text-lg mb-2">Affordable Plans</h4>
                         <p class="text-gray-600 text-sm">Monthly plans that don't break the bank.</p>
                     </div>
                     <div class="p-6 hover:-translate-y-2 transition-transform duration-300 bg-white rounded-2xl hover:shadow-xl border border-transparent hover:border-gray-50 reveal-up delay-100">
-                        <div class="w-14 h-14 bg-joy-bg text-joy-yellowHover mx-auto rounded-full flex items-center justify-center text-2xl mb-4">
+                        <div class="w-14 h-14 bg-yellow-50 text-joy-yellowHover mx-auto rounded-full flex items-center justify-center text-2xl mb-4">
                             <i class="ph-fill ph-users-three"></i>
                         </div>
                         <h4 class="font-bold text-gray-900 text-lg mb-2">Experienced Team</h4>
                         <p class="text-gray-600 text-sm">Highly trained dental professionals.</p>
                     </div>
                     <div class="p-6 hover:-translate-y-2 transition-transform duration-300 bg-white rounded-2xl hover:shadow-xl border border-transparent hover:border-gray-50 reveal-up delay-200">
-                        <div class="w-14 h-14 bg-joy-bg text-joy-yellowHover mx-auto rounded-full flex items-center justify-center text-2xl mb-4">
+                        <div class="w-14 h-14 bg-yellow-50 text-joy-yellowHover mx-auto rounded-full flex items-center justify-center text-2xl mb-4">
                             <i class="ph-fill ph-scan"></i>
                         </div>
                         <h4 class="font-bold text-gray-900 text-lg mb-2">Modern Digital Scanning</h4>
                         <p class="text-gray-600 text-sm">No messy molds! Comfortable and fast.</p>
                     </div>
                     <div class="p-6 hover:-translate-y-2 transition-transform duration-300 bg-white rounded-2xl hover:shadow-xl border border-transparent hover:border-gray-50 reveal-up delay-300">
-                        <div class="w-14 h-14 bg-joy-bg text-joy-yellowHover mx-auto rounded-full flex items-center justify-center text-2xl mb-4">
+                        <div class="w-14 h-14 bg-yellow-50 text-joy-yellowHover mx-auto rounded-full flex items-center justify-center text-2xl mb-4">
                             <i class="ph-fill ph-heart"></i>
                         </div>
                         <h4 class="font-bold text-gray-900 text-lg mb-2">Patient-First Care</h4>
@@ -417,148 +685,225 @@
             </div>
         </section>
 
-        <!-- 7. SOCIAL PROOF (RESULTS & REVIEWS) -->
-        <section id="reviews" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 scroll-mt-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Real Patient Results</h2>
-                <p class="text-lg text-gray-600">See the smiles we've transformed across Penang.</p>
-            </div>
-            
-            <!-- Before / After Grid Placeholder -->
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <!-- Case 1 -->
-                <div class="bg-white p-4 rounded-2xl shadow-md hover:shadow-xl transition-shadow border border-gray-100">
-                    <div class="flex gap-2 mb-3 group overflow-hidden rounded-lg">
-                        <div class="w-1/2 relative bg-gray-200 aspect-[4/3]">
-                            <!-- Real image placeholder -->
-                            <img src="https://images.unsplash.com/photo-1590625691060-61b8f1c86ce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="object-cover w-full h-full grayscale opacity-70 group-hover:scale-105 transition-transform duration-500" alt="Before">
-                            <div class="absolute bottom-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">Before</div>
-                        </div>
-                        <div class="w-1/2 relative bg-gray-200 aspect-[4/3]">
-                            <!-- Real image placeholder -->
-                            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" alt="After">
-                            <div class="absolute bottom-2 left-2 bg-joy-yellow text-gray-900 font-bold text-xs px-2 py-1 rounded">After</div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 italic">"18 months with Metal Braces. Love my new smile!"</p>
-                </div>
-                <!-- Case 2 -->
-                <div class="bg-white p-4 rounded-2xl shadow-md hover:shadow-xl transition-shadow border border-gray-100">
-                    <div class="flex gap-2 mb-3 group overflow-hidden rounded-lg">
-                        <div class="w-1/2 relative bg-gray-200 aspect-[4/3]">
-                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="object-cover w-full h-full grayscale opacity-70 group-hover:scale-105 transition-transform duration-500" alt="Before">
-                            <div class="absolute bottom-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">Before</div>
-                        </div>
-                        <div class="w-1/2 relative bg-gray-200 aspect-[4/3]">
-                            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" alt="After">
-                            <div class="absolute bottom-2 left-2 bg-joy-yellow text-gray-900 font-bold text-xs px-2 py-1 rounded">After</div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-600 italic">"Clear aligners worked like magic. So discreet!"</p>
-                </div>
-            </div>
-
-            <!-- Google Reviews Placeholder -->
-            <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm text-center transform hover:-translate-y-2 hover:shadow-lg reveal-scale">
-                <div class="flex justify-center mb-4 text-3xl">
-                    <i class="ph-fill ph-google-logo text-blue-500"></i>
-                </div>
-                <div class="flex justify-center text-yellow-400 text-2xl mb-4">
-                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
-                </div>
-                <p class="text-xl font-bold text-gray-900 mb-2">4.9/5 Average Rating</p>
-                <p class="text-gray-600 mb-6">Based on hundreds of patient reviews across our Penang clinics.</p>
-                <button onclick="openWhatsApp()" class="text-blue-600 font-bold hover:underline">Check out our Instagram cases @JoyDental</button>
-            </div>
-        </section>
-
-        <!-- 8. FAQ -->
-        <section id="faq" class="py-16 bg-white scroll-mt-20">
-            <div class="max-w-3xl mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center">Frequently Asked Questions</h2>
+        <!-- MODERN COLLAPSIBLE FAQ -->
+        <section id="faq" class="py-20 bg-white scroll-mt-20">
+            <div class="max-w-3xl mx-auto px-4 md:px-6">
                 
-                <div class="space-y-4">
-                    <!-- Q1 -->
-                    <div class="p-6 bg-joy-bg rounded-2xl border border-blue-50 hover:shadow-md transition-shadow">
-                        <h3 class="font-bold text-lg text-gray-900 flex items-center gap-2 mb-2">
-                            <i class="ph-fill ph-question text-joy-yellowHover"></i> Is braces painful?
-                        </h3>
-                        <p class="text-gray-700">Mild discomfort at the start and after tightening, but it's very manageable and fades quickly.</p>
+                <div class="text-center mb-12 reveal-up">
+                    <p class="text-joy-yellowHover font-bold uppercase tracking-widest text-xs mb-3">FAQ</p>
+                    <h2 class="text-4xl md:text-5xl font-serif text-gray-900 mb-4">Common questions</h2>
+                    <p class="text-gray-500">Everything you need to know before starting your braces journey.</p>
+                </div>
+                
+                <div class="space-y-0 border-t border-gray-200 reveal-up delay-100">
+                    
+                    <!-- FAQ 1 -->
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-5 flex justify-between items-center text-left focus:outline-none group" onclick="toggleFaq('faq1')">
+                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-joy-yellowHover transition-colors duration-200">How much do braces cost in Penang at Joy Dental?</h3>
+                            <div class="w-6 h-6 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0 transition-transform duration-300 text-joy-yellowHover" id="icon-faq1">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </div>
+                        </button>
+                        <div id="content-faq1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-600 text-base leading-relaxed">
+                                Braces start from RM130/month on instalment. The total cost depends on the type of braces and complexity of your case. We provide a full breakdown with no hidden charges at your free consultation.
+                            </p>
+                        </div>
                     </div>
-                    <!-- Q2 -->
-                    <div class="p-6 bg-joy-bg rounded-2xl border border-blue-50 hover:shadow-md transition-shadow">
-                        <h3 class="font-bold text-lg text-gray-900 flex items-center gap-2 mb-2">
-                            <i class="ph-fill ph-question text-joy-yellowHover"></i> Can adults do braces?
-                        </h3>
-                        <p class="text-gray-700">Yes, absolutely! It is very common. We treat many adult professionals using ceramic or clear aligners.</p>
+                    
+                    <!-- FAQ 2 -->
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-5 flex justify-between items-center text-left focus:outline-none group" onclick="toggleFaq('faq2')">
+                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-joy-yellowHover transition-colors duration-200">Are braces painful?</h3>
+                            <div class="w-6 h-6 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0 transition-transform duration-300 text-joy-yellowHover" id="icon-faq2">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </div>
+                        </button>
+                        <div id="content-faq2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-600 text-base leading-relaxed">
+                                There is mild discomfort in the first few days after fitting and after each tightening appointment. This is completely normal and settles quickly. Most patients find it very manageable.
+                            </p>
+                        </div>
                     </div>
-                    <!-- Q3 -->
-                    <div class="p-6 bg-joy-bg rounded-2xl border border-blue-50 hover:shadow-md transition-shadow">
-                        <h3 class="font-bold text-lg text-gray-900 flex items-center gap-2 mb-2">
-                            <i class="ph-fill ph-question text-joy-yellowHover"></i> How often do I need to visit?
-                        </h3>
-                        <p class="text-gray-700">Usually every 4-6 weeks for adjustments, depending on the type of braces you choose.</p>
+
+                    <!-- FAQ 3 -->
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-5 flex justify-between items-center text-left focus:outline-none group" onclick="toggleFaq('faq3')">
+                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-joy-yellowHover transition-colors duration-200">Can adults do braces? Is it too late?</h3>
+                            <div class="w-6 h-6 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0 transition-transform duration-300 text-joy-yellowHover" id="icon-faq3">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </div>
+                        </button>
+                        <div id="content-faq3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-600 text-base leading-relaxed">
+                                Absolutely not — braces work at any age. We treat many adult professionals using ceramic braces or clear aligners for a more discreet experience. Age is never a barrier to a straighter smile.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-5 flex justify-between items-center text-left focus:outline-none group" onclick="toggleFaq('faq4')">
+                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-joy-yellowHover transition-colors duration-200">How often do I need to visit?</h3>
+                            <div class="w-6 h-6 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0 transition-transform duration-300 text-joy-yellowHover" id="icon-faq4">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </div>
+                        </button>
+                        <div id="content-faq4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-600 text-base leading-relaxed">
+                                Usually every 4-6 weeks for tightening and adjustments. Self-ligating options or clear aligners may require fewer visits depending on your treatment plan.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="border-b border-gray-200">
+                        <button class="w-full py-5 flex justify-between items-center text-left focus:outline-none group" onclick="toggleFaq('faq5')">
+                            <h3 class="font-bold text-lg text-gray-900 group-hover:text-joy-yellowHover transition-colors duration-200">Is Joy Dental registered with the Ministry of Health (MOH)?</h3>
+                            <div class="w-6 h-6 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0 transition-transform duration-300 text-joy-yellowHover" id="icon-faq5">
+                                <i class="ph-bold ph-caret-down"></i>
+                            </div>
+                        </button>
+                        <div id="content-faq5" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <p class="pb-6 text-gray-600 text-base leading-relaxed">
+                                Yes. All Joy Dental clinics are fully registered with the Ministry of Health Malaysia (MOH) and our dentists are registered with the Malaysian Dental Council (MDC).
+                            </p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- 9. FINAL CTA -->
-        <section id="consultation" class="py-20 bg-gray-900 text-white relative overflow-hidden">
-            <!-- Background flair -->
-            <div class="absolute top-0 left-0 w-full h-2 bg-joy-yellow"></div>
-            <div class="absolute -right-20 -top-20 w-64 h-64 bg-joy-yellow opacity-10 rounded-full blur-3xl"></div>
-            <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-joy-yellow opacity-10 rounded-full blur-3xl"></div>
-            
-            <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-                <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Get Your Braces Quote Today</h2>
-                <p class="text-xl text-gray-300 mb-10">Fast response. No obligation to commit.</p>
+        <!-- FINAL CTA -->
+        <section id="consultation" class="py-20 bg-joy-yellow text-gray-900 relative overflow-hidden text-center">
+            <div class="max-w-4xl mx-auto px-4 relative z-10">
+                <h2 class="text-4xl md:text-5xl font-serif mb-4">Start your smile journey today</h2>
+                <p class="text-lg md:text-xl text-gray-800 mb-10 max-w-lg mx-auto">Get your quote this month. Fast WhatsApp response. No obligation to commit.</p>
                 
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <button onclick="openWhatsApp()" class="w-full sm:w-auto flex justify-center items-center gap-2 bg-joy-yellow hover:bg-joy-yellowHover text-gray-900 text-xl font-bold py-4 px-10 rounded-full transition-transform hover:scale-105 shadow-xl">
-                        <i class="ph ph-whatsapp-logo text-3xl"></i>
-                        WhatsApp Now
+                    <button onclick="openWhatsApp()" class="w-full sm:w-auto flex justify-center items-center gap-2 bg-white text-gray-900 text-[15px] font-bold py-4 px-10 rounded-full transition-transform hover:scale-105 shadow-md">
+                        <i class="ph-bold ph-whatsapp-logo text-xl"></i>
+                        WhatsApp for Quote
                     </button>
-                    <button onclick="openWhatsApp()" class="w-full sm:w-auto flex justify-center items-center bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white text-xl font-bold py-4 px-10 rounded-full transition-colors">
-                        Book Consultation
-                    </button>
+                    <a href="#lead-form" class="w-full sm:w-auto flex justify-center items-center bg-transparent border-2 border-gray-900 text-gray-900 text-[15px] font-bold py-4 px-10 rounded-full transition-colors hover:bg-gray-900 hover:text-white">
+                        Fill In My Details
+                    </a>
                 </div>
-                <p class="mt-6 text-sm text-gray-400">Discover exactly what "affordable braces penang" means with us.</p>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-950 text-gray-500 text-center py-6 pb-24 md:pb-6 text-sm">
-        <p>&copy; 2026 Joy Dental Penang. All Rights Reserved.</p>
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-10 pb-32 md:pb-32 text-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="mb-2">&copy; 2026 <strong class="text-white">Joy Dental Penang</strong>. All Rights Reserved.</p>
+            <p class="text-xs md:text-sm">Braces Bayan Lepas &middot; Braces Pulau Tikus &middot; Braces Permatang Pauh &middot; Braces Tanjung Tokong &middot; Braces Karpal Singh &middot; Braces Raja Uda</p>
+        </div>
     </footer>
 
-    <!-- STICKY FLOATING ELEMENTS (GOOGLE ADS OPTIMIZATION) -->
-
-    <!-- Floating Price Banner (Mobile Only, Bottom) -->
-    <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-3 flex justify-between items-center z-40 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
-        <div>
-            <p class="text-xs text-gray-500 font-bold uppercase">Braces Installment</p>
-            <p class="text-lg font-extrabold text-gray-900">From RM130<span class="text-xs font-normal">/mo</span></p>
+    <!-- STICKY BOTTOM (Universal Desktop & Mobile - Replaces floating banners) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 md:px-8 md:py-4 flex items-center justify-between z-[100] shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+        <!-- Desktop Price display -->
+        <div class="hidden sm:block text-gray-900 font-serif text-lg md:text-xl">
+            From RM130 <span class="font-sans text-sm text-gray-500 font-normal">/ month instalment</span>
         </div>
-        <button onclick="openWhatsApp()" class="bg-joy-yellow text-gray-900 font-bold py-2 px-4 rounded-lg text-sm flex items-center gap-1">
-            Get Quote <i class="ph-bold ph-caret-right"></i>
-        </button>
+        <!-- Mobile Compact Price display -->
+        <div class="sm:hidden text-gray-900 font-serif text-[15px] leading-tight">
+            RM130<br><span class="font-sans text-[11px] text-gray-500 font-normal leading-none">/mo instalment</span>
+        </div>
+        
+        <div class="flex items-center gap-2 md:gap-3">
+            <a href="#lead-form" class="bg-transparent text-gray-900 border-2 border-joy-yellow hover:bg-yellow-50 px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-bold transition-colors whitespace-nowrap">
+                Book Consult
+            </a>
+            <button onclick="openWhatsApp()" class="bg-joy-yellow hover:bg-joy-yellowHover text-gray-900 px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-bold transition-colors shadow-sm whitespace-nowrap flex items-center gap-1.5">
+                <i class="ph-fill ph-whatsapp-logo text-base"></i> WhatsApp
+            </button>
+        </div>
     </div>
 
-    <!-- Floating WhatsApp Button (Desktop bottom-right, Mobile slightly higher to avoid banner) -->
-    <button onclick="openWhatsApp()" class="fixed bottom-24 md:bottom-8 right-4 md:right-8 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transition-transform hover:scale-110 z-50 flex items-center justify-center animate-subtle-bounce group">
+    <!-- Floating WhatsApp Button (Pushed up to clear the sticky bottom) -->
+    <button onclick="openWhatsApp()" class="fixed bottom-24 right-4 md:right-8 bg-[#25D366] hover:bg-[#1ebe57] text-white rounded-full p-4 shadow-2xl transition-transform hover:scale-110 z-50 flex items-center justify-center animate-subtle-bounce group">
         <i class="ph ph-whatsapp-logo text-4xl"></i>
-        <!-- Tooltip on hover for desktop -->
         <span class="absolute right-full mr-4 bg-gray-900 text-white text-sm font-bold py-2 px-4 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity hidden md:block pointer-events-none">
             Chat with us!
         </span>
     </button>
 
-    <!-- Native Scroll Animations (High Performance, No External Libraries) -->
+    <!-- LOCAL BUSINESS SCHEMA FOR SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DentalClinic",
+      "name": "Joy Dental Penang",
+      "description": "Affordable braces in Penang from RM130/month. Metal, ceramic and clear aligners with flexible instalment plans across 6 clinic locations.",
+      "url": "https://bracespenang.joydental.com.my/",
+      "telephone": "+60123456789",
+      "priceRange": "RM130-RM300/month",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Penang",
+        "addressCountry": "MY"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "800"
+      },
+      "openingHours": "Mo-Sa 09:00-18:00"
+    }
+    </script>
+
     <script>
+        // FAQ Toggle Logic
+        function toggleFaq(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            
+            // Optional: Close all other open FAQs
+            document.querySelectorAll('[id^="content-faq"]').forEach(el => {
+                if(el.id !== `content-${id}`) {
+                    el.style.maxHeight = null;
+                    document.getElementById(el.id.replace('content-', 'icon-')).style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Toggle selected FAQ
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Demo Form Submission Handler
+        function handleDemoSubmit(event) {
+            event.preventDefault(); // Prevents the form from trying to load the PHP file
+            
+            Swal.fire({
+                title: 'Coming Soon!',
+                text: 'This is a demo site. The email system will be connected when live. Please use the WhatsApp button to test communication!',
+                icon: 'info',
+                confirmButtonColor: '#ffc900',
+                confirmButtonText: 'Understood'
+            });
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
+            // Check for success URL param (from PHP)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('success')) {
+                const banner = document.getElementById('form-success-banner');
+                banner.classList.remove('hidden');
+                window.scrollTo(0,0);
+                setTimeout(() => banner.classList.add('hidden'), 5000);
+            }
+
             // Mobile Menu Toggle Logic
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -568,7 +913,6 @@
             if (mobileBtn && mobileMenu) {
                 mobileBtn.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
-                    // Toggle icon between list and X
                     if (mobileMenu.classList.contains('hidden')) {
                         menuIcon.classList.remove('ph-x');
                         menuIcon.classList.add('ph-list');
@@ -578,7 +922,6 @@
                     }
                 });
 
-                // Close menu when a link is clicked
                 mobileNavLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         mobileMenu.classList.add('hidden');
@@ -591,22 +934,19 @@
             // Scroll Animation Observer Logic
             const observerOptions = {
                 root: null,
-                rootMargin: '0px 0px -50px 0px', // Trigger slightly before the element hits the bottom
+                rootMargin: '0px 0px -50px 0px', 
                 threshold: 0.1
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Add the visible class to trigger the CSS transition
                         entry.target.classList.add('reveal-visible');
-                        // Stop observing once it's visible so it doesn't animate out and in constantly
                         observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
-            // Select all elements with our custom animation classes
             const elementsToAnimate = document.querySelectorAll('.reveal-up, .reveal-scale');
             elementsToAnimate.forEach(el => observer.observe(el));
         });
