@@ -426,8 +426,8 @@
             <div class="max-w-4xl mx-auto px-4 text-center reveal-up">
                 <img src="assets/images/joy_awards_logo.jpeg" alt="Healthcare Asia Awards 2026 - Dental Clinic of the Year - Malaysia" class="max-h-32 md:max-h-48 mx-auto object-contain" onerror="this.src='https://via.placeholder.com/600x200?text=Insert+Award+Logo+Here'">
             </div>
-                    <br>
-        <br>
+            <br>
+            <br>
         </section>
 
         <!-- DOCTORS SECTION -->
@@ -614,76 +614,248 @@
             </div>
         </section>
 
-        <!-- LOCATIONS -->
-        <section id="locations" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 scroll-mt-20">
-            <div class="flex flex-col md:flex-row gap-10 items-center">
-                <div class="w-full md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-6">6 convenient locations in Penang</h2>
-                    <p class="text-lg text-gray-600 mb-8">Island and mainland — find a Joy Dental clinic near you for easy follow-up visits every 4–6 weeks.</p>
+        <!-- LOCATIONS (UPDATED WITH INTERACTIVE MAP & IMAGES) -->
+        <section id="locations" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-4">6 convenient locations in Penang</h2>
+                <p class="text-lg text-gray-600">Select a branch below to view clinic details and get directions.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
+                
+                <!-- Left: Branch List -->
+                <div class="w-full lg:w-4/12 flex flex-col gap-3 reveal-up">
                     
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up">
-                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
-                            <div>
-                                <div class="font-bold text-[15px] text-gray-900">Bayan Lepas</div>
-                                <div class="text-xs text-gray-500 mb-1">Penang Island (South)</div>
-                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
-                            </div>
+                    <!-- Bayan Lepas Tab -->
+                    <button onclick="showBranch('bayan-lepas')" id="tab-bayan-lepas" class="branch-tab w-full text-left bg-white border-2 border-gray-200 rounded-2xl p-4 flex gap-4 items-center hover:border-joy-yellowHover transition-all focus:outline-none group">
+                        <div class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0">
+                            <!-- Bouncing Pin Icon -->
+                            <i class="ph-fill ph-map-pin text-xl text-gray-400 animate-bounce group-hover:text-joy-yellowHover pin-icon"></i>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up delay-100">
-                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
-                            <div>
-                                <div class="font-bold text-[15px] text-gray-900">Pulau Tikus</div>
-                                <div class="text-xs text-gray-500 mb-1">Penang Island (Central)</div>
-                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
-                            </div>
+                        <div class="flex-grow">
+                            <div class="font-bold text-[16px] text-gray-900">Bayan Lepas</div>
+                            <div class="text-xs text-gray-500">Penang Island (South)</div>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up delay-200">
-                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
-                            <div>
-                                <div class="font-bold text-[15px] text-gray-900">Tanjung Tokong</div>
-                                <div class="text-xs text-gray-500 mb-1">Penang Island (North)</div>
-                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
-                            </div>
+                        <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-joy-yellowHover"></i>
+                    </button>
+
+                    <!-- Pulau Tikus Tab -->
+                    <button onclick="showBranch('pulau-tikus')" id="tab-pulau-tikus" class="branch-tab w-full text-left bg-white border-2 border-gray-200 rounded-2xl p-4 flex gap-4 items-center hover:border-joy-yellowHover transition-all focus:outline-none group">
+                        <div class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0">
+                            <i class="ph-fill ph-map-pin text-xl text-gray-400 animate-bounce group-hover:text-joy-yellowHover pin-icon"></i>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up">
-                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
-                            <div>
-                                <div class="font-bold text-[15px] text-gray-900">Permatang Pauh</div>
-                                <div class="text-xs text-gray-500 mb-1">Seberang Perai</div>
-                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
-                            </div>
+                        <div class="flex-grow">
+                            <div class="font-bold text-[16px] text-gray-900">Pulau Tikus</div>
+                            <div class="text-xs text-gray-500">Penang Island (Central)</div>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up delay-100">
-                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
-                            <div>
-                                <div class="font-bold text-[15px] text-gray-900">Karpal Singh</div>
-                                <div class="text-xs text-gray-500 mb-1">Seberang Perai (Central)</div>
-                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
-                            </div>
+                        <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-joy-yellowHover"></i>
+                    </button>
+
+                    <!-- Tanjung Tokong Tab -->
+                    <button onclick="showBranch('tanjung-tokong')" id="tab-tanjung-tokong" class="branch-tab w-full text-left bg-white border-2 border-gray-200 rounded-2xl p-4 flex gap-4 items-center hover:border-joy-yellowHover transition-all focus:outline-none group">
+                        <div class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0">
+                            <i class="ph-fill ph-map-pin text-xl text-gray-400 animate-bounce group-hover:text-joy-yellowHover pin-icon"></i>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-xl p-4 flex gap-3 items-start hover:border-joy-yellowHover hover:shadow-md transition-all reveal-up delay-200">
-                            <div class="w-2.5 h-2.5 rounded-full bg-joy-yellow mt-1.5 flex-shrink-0"></div>
-                            <div>
-                                <div class="font-bold text-[15px] text-gray-900">Raja Uda</div>
-                                <div class="text-xs text-gray-500 mb-1">Butterworth</div>
-                                <a href="https://maps.google.com" target="_blank" class="text-xs text-joy-yellowHover font-semibold">Get Directions →</a>
-                            </div>
+                        <div class="flex-grow">
+                            <div class="font-bold text-[16px] text-gray-900">Tanjung Tokong</div>
+                            <div class="text-xs text-gray-500">Penang Island (North)</div>
                         </div>
-                    </div>
+                        <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-joy-yellowHover"></i>
+                    </button>
+
+                    <!-- Permatang Pauh Tab -->
+                    <button onclick="showBranch('permatang-pauh')" id="tab-permatang-pauh" class="branch-tab w-full text-left bg-white border-2 border-gray-200 rounded-2xl p-4 flex gap-4 items-center hover:border-joy-yellowHover transition-all focus:outline-none group">
+                        <div class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0">
+                            <i class="ph-fill ph-map-pin text-xl text-gray-400 animate-bounce group-hover:text-joy-yellowHover pin-icon"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="font-bold text-[16px] text-gray-900">Permatang Pauh</div>
+                            <div class="text-xs text-gray-500">Seberang Perai</div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-joy-yellowHover"></i>
+                    </button>
+
+                    <!-- Karpal Singh Tab -->
+                    <button onclick="showBranch('karpal-singh')" id="tab-karpal-singh" class="branch-tab w-full text-left bg-white border-2 border-gray-200 rounded-2xl p-4 flex gap-4 items-center hover:border-joy-yellowHover transition-all focus:outline-none group">
+                        <div class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0">
+                            <i class="ph-fill ph-map-pin text-xl text-gray-400 animate-bounce group-hover:text-joy-yellowHover pin-icon"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="font-bold text-[16px] text-gray-900">Karpal Singh</div>
+                            <div class="text-xs text-gray-500">Seberang Perai (Central)</div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-joy-yellowHover"></i>
+                    </button>
+
+                    <!-- Raja Uda Tab -->
+                    <button onclick="showBranch('raja-uda')" id="tab-raja-uda" class="branch-tab w-full text-left bg-white border-2 border-gray-200 rounded-2xl p-4 flex gap-4 items-center hover:border-joy-yellowHover transition-all focus:outline-none group">
+                        <div class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0">
+                            <i class="ph-fill ph-map-pin text-xl text-gray-400 animate-bounce group-hover:text-joy-yellowHover pin-icon"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="font-bold text-[16px] text-gray-900">Raja Uda</div>
+                            <div class="text-xs text-gray-500">Butterworth</div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-gray-300 group-hover:text-joy-yellowHover"></i>
+                    </button>
+
                 </div>
-                <div class="w-full md:w-1/2">
-                    <div class="w-full h-[350px] bg-gray-200 rounded-3xl overflow-hidden relative border-4 border-white shadow-lg hover:shadow-2xl transition-shadow duration-500">
-                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700" 
-                             alt="Map of Penang clinics"
-                             onerror="this.src='https://via.placeholder.com/600x400?text=Joy+Dental+Locations'">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <button onclick="openWhatsApp()" class="bg-gray-900 text-white font-bold py-3 px-6 rounded-full shadow-xl hover:bg-gray-800 transition flex items-center gap-2 hover:scale-105">
-                                <i class="ph ph-navigation-arrow"></i> Find nearest clinic
-                            </button>
+
+                <!-- Right: Dynamic Split Display Panel -->
+                <div class="w-full lg:w-8/12 reveal-up delay-100">
+                    
+                    <!-- BAYAN LEPAS PANE -->
+                    <div id="pane-bayan-lepas" class="branch-pane hidden bg-white border border-gray-100 shadow-[0_15px_40px_rgba(0,0,0,0.06)] rounded-[2rem] p-6 md:p-8 h-full">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-serif text-gray-900 mb-1">Joy Dental Bayan Lepas</h3>
+                                <p class="text-sm font-medium text-gray-500 flex items-center gap-1">
+                                    <i class="ph-fill ph-map-pin text-joy-yellowHover"></i> Penang Island (South)
+                                </p>
+                            </div>
+                            <a href="https://maps.google.com" target="_blank" class="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white text-sm font-bold px-6 py-3 rounded-full transition-colors flex items-center justify-center gap-2 shadow-md">
+                                <i class="ph-bold ph-navigation-arrow text-lg"></i> Get Directions
+                            </a>
+                        </div>
+                        
+                        <!-- 2-Part Split (Map on left, Image on right) -->
+                        <div class="grid md:grid-cols-2 gap-4 h-auto md:h-[350px]">
+                            <!-- Part 1: Map (Update iframe src below with real Google Maps link) -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 h-[250px] md:h-full">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127504.42335198948!2d100.20524451731671!3d5.354146036130985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac2c03cb63795%3A0x1c8b320df6823355!2sPenang%2C%20Malaysia!5e0!3m2!1sen!2sus!4v1714000000000!5m2!1sen!2sus" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <!-- Part 2: Branch Image (Update src with actual branch image) -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 relative group h-[250px] md:h-full">
+                                <img src="assets/images/i-avenue_branch.webp" onerror="this.src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Bayan Lepas Clinic">
+                            </div>
                         </div>
                     </div>
+
+                    <!-- PULAU TIKUS PANE -->
+                    <div id="pane-pulau-tikus" class="branch-pane hidden bg-white border border-gray-100 shadow-[0_15px_40px_rgba(0,0,0,0.06)] rounded-[2rem] p-6 md:p-8 h-full">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-serif text-gray-900 mb-1">Joy Dental Pulau Tikus</h3>
+                                <p class="text-sm font-medium text-gray-500 flex items-center gap-1">
+                                    <i class="ph-fill ph-map-pin text-joy-yellowHover"></i> Penang Island (Central)
+                                </p>
+                            </div>
+                            <a href="https://maps.google.com" target="_blank" class="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white text-sm font-bold px-6 py-3 rounded-full transition-colors flex items-center justify-center gap-2 shadow-md">
+                                <i class="ph-bold ph-navigation-arrow text-lg"></i> Get Directions
+                            </a>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4 h-auto md:h-[350px]">
+                            <!-- Part 1: Map -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 h-[250px] md:h-full">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127504.42335198948!2d100.20524451731671!3d5.354146036130985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac2c03cb63795%3A0x1c8b320df6823355!2sPenang%2C%20Malaysia!5e0!3m2!1sen!2sus!4v1714000000000!5m2!1sen!2sus" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <!-- Part 2: Branch Image -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 relative group h-[250px] md:h-full">
+                                <img src="assets/images/pulau_tikus_branch.webp" onerror="this.src='https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Pulau Tikus Clinic">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TANJUNG TOKONG PANE -->
+                    <div id="pane-tanjung-tokong" class="branch-pane hidden bg-white border border-gray-100 shadow-[0_15px_40px_rgba(0,0,0,0.06)] rounded-[2rem] p-6 md:p-8 h-full">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-serif text-gray-900 mb-1">Joy Dental Tanjung Tokong</h3>
+                                <p class="text-sm font-medium text-gray-500 flex items-center gap-1">
+                                    <i class="ph-fill ph-map-pin text-joy-yellowHover"></i> Penang Island (North)
+                                </p>
+                            </div>
+                            <a href="https://maps.google.com" target="_blank" class="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white text-sm font-bold px-6 py-3 rounded-full transition-colors flex items-center justify-center gap-2 shadow-md">
+                                <i class="ph-bold ph-navigation-arrow text-lg"></i> Get Directions
+                            </a>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4 h-auto md:h-[350px]">
+                            <!-- Part 1: Map -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 h-[250px] md:h-full">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127504.42335198948!2d100.20524451731671!3d5.354146036130985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac2c03cb63795%3A0x1c8b320df6823355!2sPenang%2C%20Malaysia!5e0!3m2!1sen!2sus!4v1714000000000!5m2!1sen!2sus" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <!-- Part 2: Branch Image -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 relative group h-[250px] md:h-full">
+                                <img src="assets/images/tanjungtokong_branch.webp" onerror="this.src='https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tanjung Tokong Clinic">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PERMATANG PAUH PANE -->
+                    <div id="pane-permatang-pauh" class="branch-pane hidden bg-white border border-gray-100 shadow-[0_15px_40px_rgba(0,0,0,0.06)] rounded-[2rem] p-6 md:p-8 h-full">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-serif text-gray-900 mb-1">Joy Dental Permatang Pauh</h3>
+                                <p class="text-sm font-medium text-gray-500 flex items-center gap-1">
+                                    <i class="ph-fill ph-map-pin text-joy-yellowHover"></i> Seberang Perai
+                                </p>
+                            </div>
+                            <a href="https://maps.google.com" target="_blank" class="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white text-sm font-bold px-6 py-3 rounded-full transition-colors flex items-center justify-center gap-2 shadow-md">
+                                <i class="ph-bold ph-navigation-arrow text-lg"></i> Get Directions
+                            </a>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4 h-auto md:h-[350px]">
+                            <!-- Part 1: Map -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 h-[250px] md:h-full">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127504.42335198948!2d100.20524451731671!3d5.354146036130985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac2c03cb63795%3A0x1c8b320df6823355!2sPenang%2C%20Malaysia!5e0!3m2!1sen!2sus!4v1714000000000!5m2!1sen!2sus" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <!-- Part 2: Branch Image -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 relative group h-[250px] md:h-full">
+                                <img src="assets/images/permatang_pauh.webp" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Permatang Pauh Clinic">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KARPAL SINGH PANE -->
+                    <div id="pane-karpal-singh" class="branch-pane hidden bg-white border border-gray-100 shadow-[0_15px_40px_rgba(0,0,0,0.06)] rounded-[2rem] p-6 md:p-8 h-full">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-serif text-gray-900 mb-1">Joy Dental Karpal Singh</h3>
+                                <p class="text-sm font-medium text-gray-500 flex items-center gap-1">
+                                    <i class="ph-fill ph-map-pin text-joy-yellowHover"></i> Seberang Perai (Central)
+                                </p>
+                            </div>
+                            <a href="https://maps.google.com" target="_blank" class="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white text-sm font-bold px-6 py-3 rounded-full transition-colors flex items-center justify-center gap-2 shadow-md">
+                                <i class="ph-bold ph-navigation-arrow text-lg"></i> Get Directions
+                            </a>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4 h-auto md:h-[350px]">
+                            <!-- Part 1: Map -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 h-[250px] md:h-full">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127504.42335198948!2d100.20524451731671!3d5.354146036130985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac2c03cb63795%3A0x1c8b320df6823355!2sPenang%2C%20Malaysia!5e0!3m2!1sen!2sus!4v1714000000000!5m2!1sen!2sus" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <!-- Part 2: Branch Image -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 relative group h-[250px] md:h-full">
+                                <img src="assets/images/joy_karpal.webp" onerror="this.src='https://images.unsplash.com/photo-1590625691060-61b8f1c86ce3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Karpal Singh Clinic">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RAJA UDA PANE -->
+                    <div id="pane-raja-uda" class="branch-pane hidden bg-white border border-gray-100 shadow-[0_15px_40px_rgba(0,0,0,0.06)] rounded-[2rem] p-6 md:p-8 h-full">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-serif text-gray-900 mb-1">Joy Dental Raja Uda</h3>
+                                <p class="text-sm font-medium text-gray-500 flex items-center gap-1">
+                                    <i class="ph-fill ph-map-pin text-joy-yellowHover"></i> Butterworth
+                                </p>
+                            </div>
+                            <a href="https://maps.google.com" target="_blank" class="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 text-white text-sm font-bold px-6 py-3 rounded-full transition-colors flex items-center justify-center gap-2 shadow-md">
+                                <i class="ph-bold ph-navigation-arrow text-lg"></i> Get Directions
+                            </a>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4 h-auto md:h-[350px]">
+                            <!-- Part 1: Map -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 h-[250px] md:h-full">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127504.42335198948!2d100.20524451731671!3d5.354146036130985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac2c03cb63795%3A0x1c8b320df6823355!2sPenang%2C%20Malaysia!5e0!3m2!1sen!2sus!4v1714000000000!5m2!1sen!2sus" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                            <!-- Part 2: Branch Image -->
+                            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 relative group h-[250px] md:h-full">
+                                <img src="assets/images/raja_uda_branch.webp" onerror="this.src='https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Raja Uda Clinic">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -898,6 +1070,49 @@
     </script>
 
     <script>
+        // Interactive Locations Map Logic
+        function showBranch(branchId) {
+            // 1. Hide all right-side detail panes
+            document.querySelectorAll('.branch-pane').forEach(pane => {
+                pane.classList.add('hidden');
+                pane.classList.remove('block', 'animate-fade-in-up');
+            });
+            
+            // 2. Reset all left-side tabs to unselected state
+            document.querySelectorAll('.branch-tab').forEach(tab => {
+                // Reset tab background and border
+                tab.classList.remove('border-joy-yellow', 'bg-[#fffdf0]', 'shadow-md');
+                tab.classList.add('border-gray-200', 'bg-white');
+                
+                // Reset pin color
+                const pin = tab.querySelector('.pin-icon');
+                if(pin) {
+                    pin.classList.remove('text-joy-yellowHover');
+                    pin.classList.add('text-gray-400');
+                }
+            });
+
+            // 3. Show the newly selected right-side pane
+            const activePane = document.getElementById(`pane-${branchId}`);
+            if(activePane) {
+                activePane.classList.remove('hidden');
+                activePane.classList.add('block', 'animate-fade-in-up');
+            }
+
+            // 4. Highlight the newly selected left-side tab
+            const activeTab = document.getElementById(`tab-${branchId}`);
+            if(activeTab) {
+                activeTab.classList.remove('border-gray-200', 'bg-white');
+                activeTab.classList.add('border-joy-yellow', 'bg-[#fffdf0]', 'shadow-md');
+                
+                const activePin = activeTab.querySelector('.pin-icon');
+                if(activePin) {
+                    activePin.classList.remove('text-gray-400');
+                    activePin.classList.add('text-joy-yellowHover');
+                }
+            }
+        }
+
         // FAQ Toggle Logic
         function toggleFaq(id) {
             const content = document.getElementById(`content-${id}`);
@@ -943,6 +1158,9 @@
                 window.scrollTo(0,0);
                 setTimeout(() => banner.classList.add('hidden'), 5000);
             }
+
+            // Initialize the branch map feature to show the first location by default
+            showBranch('bayan-lepas');
 
             // Mobile Menu Toggle Logic
             const mobileBtn = document.getElementById('mobile-menu-btn');
